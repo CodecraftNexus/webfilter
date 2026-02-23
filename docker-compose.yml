@@ -8,10 +8,10 @@ services:
     container_name: webfilter_app
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "8000:8000"
     environment:
       - NODE_ENV=development
-      - PORT=5000
+      - PORT=8000
       - FORCE_SYNC=false
       - TIMEZONE=+05:30
       - CORS_ORIGINS=https://test.medi.lk , https://prediction.medi.lk
