@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_1 = require("../middleware/auth");
+const webFilterLinkController_1 = require("../Controllers/webFilterLinkController");
+const router = (0, express_1.Router)();
+router.get("/", auth_1.requireAuth, webFilterLinkController_1.getWebFilterLinks);
+router.get("/:id", auth_1.requireAuth, webFilterLinkController_1.getWebFilterLinkById);
+router.post("/", auth_1.requireAuth, webFilterLinkController_1.createWebFilterLink);
+router.put("/:id", auth_1.requireAuth, webFilterLinkController_1.updateWebFilterLink);
+router.delete("/:id", auth_1.requireAuth, webFilterLinkController_1.deleteWebFilterLink);
+exports.default = router;
