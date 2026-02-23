@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initUserRelationship = initUserRelationship;
 function initUserRelationship(models) {
-    const { Users, Gender, Language, ProfileImage, RefreshToken, OAuthAccount, WebFilter, WebFilterLink } = models;
+    const { Users, Gender, Language, ProfileImage, RefreshToken, OAuthAccount, WebFilter, WebFilterLink, AppUsage, WebUsage } = models;
     if (!Users)
         return;
     if (Gender) {
@@ -38,5 +38,13 @@ function initUserRelationship(models) {
     if (WebFilterLink) {
         Users.hasMany(WebFilterLink, { foreignKey: "user_id" });
         WebFilterLink.belongsTo(Users, { foreignKey: "user_id" });
+    }
+    if (WebUsage) {
+        Users.hasMany(WebUsage, { foreignKey: "user_id" });
+        WebUsage.belongsTo(Users, { foreignKey: "user_id" });
+    }
+    if (AppUsage) {
+        Users.hasMany(AppUsage, { foreignKey: "user_id" });
+        AppUsage.belongsTo(Users, { foreignKey: "user_id" });
     }
 }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WebFilterLink = exports.WebFilter = exports.OAuthAccount = exports.RefreshToken = exports.ProfileImage = exports.Language = exports.Gender = exports.Users = void 0;
+exports.AppUsage = exports.WebUsage = exports.WebFilterLink = exports.WebFilter = exports.OAuthAccount = exports.RefreshToken = exports.ProfileImage = exports.Language = exports.Gender = exports.Users = void 0;
 const Gender_1 = require("./Gender");
 Object.defineProperty(exports, "Gender", { enumerable: true, get: function () { return Gender_1.Gender; } });
 const hooks_1 = require("../hooks");
@@ -19,6 +19,10 @@ const webfilter_1 = require("./webfilter");
 Object.defineProperty(exports, "WebFilter", { enumerable: true, get: function () { return webfilter_1.WebFilter; } });
 const WebFilterLink_1 = require("./WebFilterLink");
 Object.defineProperty(exports, "WebFilterLink", { enumerable: true, get: function () { return WebFilterLink_1.WebFilterLink; } });
+const WebUsage_1 = require("./WebUsage");
+Object.defineProperty(exports, "WebUsage", { enumerable: true, get: function () { return WebUsage_1.WebUsage; } });
+const AppUsage_1 = require("./AppUsage");
+Object.defineProperty(exports, "AppUsage", { enumerable: true, get: function () { return AppUsage_1.AppUsage; } });
 const models = {
     Users: Users_1.Users,
     Gender: Gender_1.Gender,
@@ -28,6 +32,8 @@ const models = {
     OAuthAccount: OAuthAccount_1.OAuthAccount,
     WebFilter: webfilter_1.WebFilter,
     WebFilterLink: WebFilterLink_1.WebFilterLink,
+    WebUsage: WebUsage_1.WebUsage,
+    AppUsage: AppUsage_1.AppUsage
 };
 (0, hooks_1.initHooks)(models);
 (0, relationships_1.initRelationship)(models);

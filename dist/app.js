@@ -27,6 +27,7 @@ const profileRoute_1 = __importDefault(require("./routes/profileRoute"));
 const sequelize_1 = require("./db/sequelize");
 const asyncHandler_1 = require("./utils/asyncHandler");
 const webFilterLinkRoute_1 = __importDefault(require("./routes/webFilterLinkRoute"));
+const usageRoutes_1 = require("./routes/usageRoutes");
 const app = (0, express_1.default)();
 app.use(express_1.default.json({ limit: "10mb" }));
 app.use(express_1.default.urlencoded({ extended: true, limit: "10mb" }));
@@ -79,7 +80,7 @@ try {
             },
         },
     }));
-    console.log(`📋 Swagger UI Ready → ${env_1.env.BASE_URL}/api/docs`);
+    console.log(`📋 Swagger UI Ready → ${env_1.env.BASE_URL}/webfilter/api/docs`);
 }
 catch (err) {
     console.warn("swagger-ui-express not installed → npm i swagger-ui-express");
@@ -96,6 +97,8 @@ app.use("/webfilter/api/auth", AuthRoute_1.default);
 app.use("/webfilter/api/webfilter", webFilterRoute_1.default);
 app.use("/webfilter/api", profileRoute_1.default);
 app.use("/webfilter/api/webfilter-link", webFilterLinkRoute_1.default);
+app.use("/webfilter/api/web-usage", usageRoutes_1.webUsageRouter);
+app.use("/webfilter/api/app-usage", usageRoutes_1.appUsageRouter);
 app.use((req, res, next) => {
     const timestamp = new Date().toISOString();
     console.log(`[${timestamp}] ${req.method} ${req.path} - IP: ${req.ip}`);
